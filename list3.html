@@ -2,9 +2,9 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>列表页-杨青青个人博客模板主题《今夕何夕》</title>
+<title>[!--pagetitle--]</title>
 <meta name="keywords" content="[!--pagekey--]" />
-<meta name="description" content="[!--pagekey--]" />
+<meta name="description" content="[!--pagedes--]" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link href="[!--news.url--]skin/css/base.css" rel="stylesheet">
 <link href="[!--news.url--]skin/css/m.css" rel="stylesheet">
@@ -19,9 +19,9 @@
 <article> 
   <!--lbox begin-->
   <div class="lbox">
-    <div class="whitebg lanmu"> <img src="images/lm04.jpg">
+    <div class="whitebg lanmu"> <img src="[!--news.url--]skin/images/lm04.jpg">
       <h1>[!--class.name--]</h1>
-      <p>个人博客用来做什么？我的个人博客网站它不仅仅是我个人兴趣和爱好，还是我创业的起点。我爱网页设计，我爱写前端代码。它充实了我的生活，实现了我的目标和梦想。</p>
+      <p>[!--class.intro--]</p>
     </div>
 
     [e:loop={"select classname,classpath,classid from phome_enewsclass where bclassid='$GLOBALS[navclassid]' and showclass=0 order by myorder,classid desc",0,24,0}]
@@ -51,27 +51,27 @@
     </div>
     <div class="whitebg tuijian">
       <h2 class="htitle">本栏推荐</h2>
-      <section class="topnews imgscale"><a href="/"><img src="images/h2.jpg"><span>6条网页设计配色原则,让你秒变配色高手</span></a></section>
+      <section class="topnews imgscale"><a href="/"><img src="[!--news.url--]skin/images/h2.jpg"><span>6条网页设计配色原则,让你秒变配色高手</span></a></section>
       <ul>
         <li><a href="/"><i><img src="images/text01.jpg"></i>
           <p>十条设计原则教你学会如何设计网页布局!</p>
           </a></li>
-        <li><a href="/"><i><img src="images/text02.jpg"></i>
+        <li><a href="/"><i><img src="[!--news.url--]skin/images/text02.jpg"></i>
           <p>用js+css3来写一个手机栏目导航</p>
           </a></li>
-        <li><a href="/"><i><img src="images/text03.jpg"></i>
+        <li><a href="/"><i><img src="[!--news.url--]skin/images/text03.jpg"></i>
           <p>6条网页设计配色原则,让你秒变配色高手</p>
           </a></li>
-        <li><a href="/"><i><img src="images/text04.jpg"></i>
+        <li><a href="/"><i><img src="[!--news.url--]skin/images/text04.jpg"></i>
           <p>三步实现滚动条触动css动画效果</p>
           </a></li>
-        <li><a href="/"><i><img src="images/text05.jpg"></i>
+        <li><a href="/"><i><img src="[!--news.url--]skin/images/text05.jpg"></i>
           <p>个人博客，属于我的小世界！</p>
           </a></li>
-        <li><a href="/"><i><img src="images/text06.jpg"></i>
+        <li><a href="/"><i><img src="[!--news.url--]skin/images/text06.jpg"></i>
           <p>安静地做一个爱设计的女子</p>
           </a></li>
-        <li><a href="/"><i><img src="images/text07.jpg"></i>
+        <li><a href="/"><i><img src="[!--news.url--]skin/images/text07.jpg"></i>
           <p>个人网站做好了，百度不收录怎么办？来，看看他们怎么做的。</p>
           </a></li>
       </ul>
@@ -106,10 +106,10 @@
     </div>
     <div class="ad whitebg imgscale">
       <ul>
-        <a href="/"><img src="images/ad02.jpg"></a>
+        <a href="/"><img src="[!--news.url--]skin/images/ad02.jpg"></a>
       </ul>
     </div>
-    <div class="whitebg tongji">
+    <!-- <div class="whitebg tongji">
       <h2 class="htitle">站点信息</h2>
       <ul>
         <li><b>建站时间</b>：2018-10-24</li>
@@ -119,7 +119,7 @@
         <li><b>文章评论</b>：490条</li>
         <li><b>统计数据</b>：<a href="/">百度统计</a></li>
       </ul>
-    </div>
+    </div> -->
   </div>
 </article>
 [!--temp.footer--]
