@@ -1,0 +1,133 @@
+<!--top begin-->
+<header id="header">
+  <div class="navbox">
+    <h2 id="mnavh"><span class="navicon"></span></h2>
+    <div class="logo"><a href="[!--news.url--]">曹腾飞个人博客</a></div>
+    <nav>
+      <ul id="starlist">
+        <!-- <li><a href="[!--news.url--]">首页</a></li> -->
+        <!-- 
+          <li><a href="list.html">java教程</a></li>
+          <li class="menu"><a href="list2.html">网站制作</a>
+          <ul class="sub">
+            <li><a href="/6">前端教程</a></li>
+            <li><a href="/7">网站模板</a></li>
+            <li><a href="/8">心得笔记</a></li>
+          </ul>
+          <span></span>
+          </li>
+         <li><a href="list3.html">项目合作</a></li>
+         <li><a href="daohang.html">优秀个人博客</a></li>
+         <li><a href="about.html">关于我</a></li>
+      -->
+      <li><a href="[!--news.url--]">首页</a></li>
+      [e:loop={"select bclassid,classid,classname,islast from {$dbtbpre}enewsclass where bclassid='0' and showclass=0 order by myorder,classid ASC limit 11",0,24,0}]
+        <?php   
+        $classurl=sys_ReturnBqClassname($bqr,9);//取得栏目地址   
+        $class="menu";                    //有子栏目时一级栏目的样式
+        if($GLOBALS[navclassid])  
+        {       
+        $fcr=explode('|',$class_r[$GLOBALS[navclassid]][featherclass]);       
+        $topbclassid=$fcr[1]?$fcr[1]:$GLOBALS[navclassid];//取得当前栏目的一级栏目ID       
+        if($bqr[classid]==$topbclassid)       
+        {           
+        $class="selected";                //当前栏目高亮显示
+        }else{
+          $class="";
+        }   
+        }   
+        elseif($public_r[home]==1)   
+        {       
+        $class="menu";  
+        }   
+        ?>
+        
+        <?php
+        if(!$bqr[islast]) //判断是否终极栏目
+        {
+        ?>
+            <li class="menu"><a href="<?=$classurl?>" id="<?=$class?>"><?=$bqr[classname]?></a>
+            <ul class="sub">
+            <?php
+            //取得栏目下的子栏目       
+            $newsclass=$empire->query("select classid,classname from ".$dbtbpre."enewsclass where bclassid=".$bqr[classid]." order by myorder,classid asc limit 11");
+            while($classr=$empire->fetch($newsclass))
+            {
+                $classrurl=sys_ReturnBqClassname($classr,9); //取得子栏目地址
+                ?>
+                <li><a href="<?=$classrurl?>"><?=$classr[classname]?></a></li>
+            <?php
+            }
+            ?>
+            </ul>
+        <?php
+        }else{
+        ?>
+          <li><a href="<?=$classurl?>" id="<?=$class?>"><?=$bqr[classname]?></a>
+        <?php 
+        }  
+        ?>
+        </li>
+        [/e:loop]
+      </ul>
+    </nav>
+    <div class="searchico"></div>
+  </div>
+</header>
+<div class="searchbox">
+  <div class="search">
+    <form action="/e/search/index.php" method="post" name="searchform" id="searchform">
+      <input name="keyboard" id="keyboard" class="input_text" value="请输入关键字词" style="color: rgb(153, 153, 153);" onfocus="if(value=='请输入关键字词'){this.style.color='#000';value=''}" onblur="if(value==''){this.style.color='#999';value='请输入关键字词'}" type="text">
+      <input name="show" value="title" type="hidden">
+      <input name="tempid" value="1" type="hidden">
+      <input name="tbname" value="news" type="hidden">
+      <input name="Submit" class="input_submit" value="搜索" type="submit">
+    </form>
+  </div>
+  <div class="searchclose"></div>
+</div>
+<!--top end-->
+
+
+
+[e:loop={"select classid,classname,islast from {$dbtbpre}enewsclass where bclassid='0' and showclass=0 order by myorder,classid ASC limit 11",0,24,0}]
+  <?php   
+  $classurl=sys_ReturnBqClassname($bqr,9);//取得栏目地址   
+  $class="menuo";                    //有子栏目时一级栏目的样式
+  if($GLOBALS[navclassid])  
+  {       
+  $fcr=explode('|',$class_r[$GLOBALS[navclassid]][featherclass]);       
+  $topbclassid=$fcr[1]?$fcr[1]:$GLOBALS[navclassid];//取得当前栏目的一级栏目ID       
+  if($bqr[classid]==$topbclassid)       
+  {           
+  $class="on";                //当前栏目高亮显示
+  }   
+  }   
+  elseif($public_r[home]==1)   
+  {       
+  $class="menuo";  
+  }   
+  ?>
+  <li><a href="<?=$classurl?>" class="<?=$class?>"><span><?=$bqr[classname]?></span></a>
+  <?php
+  if(!$bqr[islast]) //判断是否终极栏目
+  {
+  ?>
+    <ul>
+    <?php
+    //取得栏目下的子栏目       
+    $newsclass=$empire->query("select classid,classname from ".$dbtbpre."enewsclass where bclassid=".$bqr[classid]." order by myorder,classid asc limit 11");
+    while($classr=$empire->fetch($newsclass))
+    {
+        $classrurl=sys_ReturnBqClassname($classr,9); //取得子栏目地址
+        ?>
+        <li class="b"><a href="<?=$classrurl?>"><?=$classr[classname]?></a></li>
+    <?php
+    }
+    ?>
+    </ul>
+  <?php
+  }
+  ?>
+  </li>
+[/e:loop]
