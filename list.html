@@ -33,7 +33,7 @@
           <p class="blogtext">如图，要实现上图效果，我采用如下方法：1、首先在数据库模型，增加字段，分别是图片2，图片3。2、增加标签模板，用if，else if 来判断，输出。思路已打开，样式调用就可以多样化啦！... </p>
           <p class="bloginfo"><i class="avatar"><img src="images/avatar.jpg"></i><span>杨青青</span><span>2018-10-28</span><span>【<a href="/">原创模板</a>】</span></p>
         </li> -->
-        [e:loop={0,10,3,0}]
+        [e:loop={'selfinfo',10,0,0}]
         <li>
           <h3 class="blogtitle"><a href="<?=$bqsr[titleurl]?>" target="_blank"><?=$bqr['title']?></a></h3>
           <span class="blogpic imgscale"><i><a href="/"><?=$bqsr[classname]?></a></i>
@@ -58,7 +58,7 @@
       <h2 class="htitle">点击排行</h2>
       <section class="topnews imgscale"><a href="/"><img src="[!--news.url--]skin/images/h1.jpg"><span>6条网页设计配色原则,让你秒变配色高手</span></a></section>
       <ul>
-        [e:loop={0,8,4,0}]
+        [e:loop={'selfinfo',10,0,0}]
         <li><i></i><a href="<?=$bqsr['titleurl']?>"><?=$bqr['title']?></a></li>
         [/e:loop]
       </ul>
@@ -67,7 +67,7 @@
       <h2 class="htitle">本栏推荐</h2>
       <section class="topnews imgscale"><a href="/"><img src="images/h2.jpg"><span>6条网页设计配色原则,让你秒变配色高手</span></a></section>
       <ul>
-          [e:loop={0,10,5,0}]
+        [e:loop={'selfinfo',10,0,0}]
           <li><a href="<?=$bqsr['titleurl']?>"><i><img src="<?=$bqsr['titlepic']?>"></i>
             <p><?=$bqr['title']?></p>
             </a>
@@ -91,7 +91,7 @@
     <div class="whitebg wenzi">
       <h2 class="htitle">猜你喜欢</h2>
       <ul>
-        [e:loop={0,8,4,0}]
+        [e:loop={'selfinfo',10,0,0}]
         <li><a href="<?=$bqsr['titleurl']?>"><?=$bqr['title']?></a></li>
         [/e:loop]
       </ul>
